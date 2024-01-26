@@ -1,0 +1,116 @@
+! YT Commands https://www.reddit.com/r/uBlockOrigin/wiki/solutions/youtube/#wiki_shorts
+
+youtube.com##.ytp-ce-element
+youtube.com##.ytp-ce-element
+youtube.com##.ytp-ce-covering-overlay
+youtube.com##.ytp-ce-element-shadow
+youtube.com##.ytp-ce-covering-image
+youtube.com##.ytp-ce-expanding-image
+youtube.com##.ytp-ce-element.ytp-ce-video.ytp-ce-element-show
+youtube.com##.ytp-ce-element.ytp-ce-channel.ytp-ce-channel-this
+youtube.com##.ytp-pause-overlay
+
+! YT Homepage - Hide the Shorts section
+youtube.com##[is-shorts]
+! YT Menu - Hide the Shorts button
+www.youtube.com###guide [title="Shorts"], .ytd-mini-guide-entry-renderer[title="Shorts"]
+! YT Search - Hide Shorts
+www.youtube.com##ytd-search ytd-video-renderer [overlay-style="SHORTS"]:upward(ytd-video-renderer)
+! YT Search and Channels - Hide the Shorts sections
+www.youtube.com##ytd-reel-shelf-renderer
+! YT Channels - Hide the Shorts tab
+www.youtube.com##ytd-browse[page-subtype="channels"] [role="tab"]:nth-of-type(3):has-text(Shorts)
+! YT Subscriptions - Hide Shorts - Grid View
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-grid-video-renderer [overlay-style="SHORTS"]:upward(ytd-grid-video-renderer)
+! YT Subscriptions - Hide Shorts - List View
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-video-renderer [overlay-style="SHORTS"]:upward(ytd-item-section-renderer)
+! YT Subscriptions - New Layout - Hide Shorts
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer [overlay-style="SHORTS"]:upward(ytd-rich-item-renderer)
+! YT Sidebar - Hide Shorts
+www.youtube.com###related ytd-compact-video-renderer [overlay-style="SHORTS"]:upward(ytd-compact-video-renderer)
+
+! YT Mobile - Hide the Shorts Menu button
+m.youtube.com##.pivot-shorts:upward(ytm-pivot-bar-item-renderer)
+! YT Mobile - Hide Shorts sections
+m.youtube.com##ytm-reel-shelf-renderer
+! YT Mobile - Hide Shorts in search results
+m.youtube.com##ytm-search ytm-video-with-context-renderer [data-style="SHORTS"]
+
+! Removes Mixes from the Main Page
+youtube.com##ytd-rich-item-renderer #video-title-link[title*="Mix"][href$="start_radio=1"]:upward(ytd-rich-item-renderer)
+! Removes Mixes from the right side panel
+youtube.com##ytd-compact-radio-renderer
+! Removes Mixes from search results
+youtube.com##ytd-radio-renderer
+
+! Removes "YouTube" (Music) playlists from the right side panel
+youtube.com##ytd-compact-playlist-renderer .ytd-channel-name:has-text(/^YouTube/):upward(ytd-compact-playlist-renderer)
+
+youtube.com##[page-subtype="home"] ytd-rich-item-renderer .badge-style-type-live-now-alternate:upward(ytd-rich-item-renderer)
+
+! 2023-11-08 https://www.youtube.com
+www.youtube.com###comments > .ytd-comments.style-scope
+
+! YT Home - Hide videos based on channel names
+youtube.com##ytd-browse[page-subtype="home"] ytd-rich-item-renderer #avatar-link:is([title="Full Channel Name"], [title*="Partial Channel Name"], [title="Case Insensitive Channel Name"i]):upward(ytd-rich-item-renderer)
+! YT Home - Hide videos based on their titles
+youtube.com##ytd-browse[page-subtype="home"] ytd-rich-item-renderer #video-title-link:is([title*="Partial Match"], [title*="Case-Insensitive Partial Match"i], [title~="Space-separated-aka-Whole-word-match"]):upward(ytd-rich-item-renderer)
+! YT Sidebar - Hide videos based on channel names
+youtube.com###related ytd-compact-video-renderer #video-title:is([aria-label*="by Partial or Full Channel name"], [aria-label*="by Case-insensitive Partial or full Channel name"i]):upward(ytd-compact-video-renderer)
+! YT Sidebar - Hide videos based on their titles
+youtube.com###related ytd-compact-video-renderer #video-title:is([title*="Partial Match"], [title*="Case-Insensitive Partial Match"i], [title~="Space-separated-aka-Whole-word-match"]):upward(ytd-compact-video-renderer)
+! Mobile YT - Hide videos based on channel URLs
+m.youtube.com##ytm-media-item .media-channel a:not([class]):is([href="/@ChannelURL"], [href="/@AnotherChannelURL"]):upward(ytm-media-item)
+
+youtube-nocookie.com,youtube.com##.ytp-pause-overlay, .show-video-thumbnail-button
+
+! YT Search - keep only videos
+youtube.com##ytd-search ytd-item-section-renderer>#contents>:not(ytd-video-renderer),ytd-secondary-search-container-renderer
+
+! YT Search - keep videos and channels
+youtube.com##ytd-search ytd-item-section-renderer>#contents>:not(ytd-video-renderer,ytd-channel-renderer),ytd-secondary-search-container-renderer
+
+youtube.com##ytd-browse[page-subtype="home"] ytd-rich-grid-row:style(--ytd-rich-grid-items-per-row: 1 !important;)
+youtube.com##ytd-browse[page-subtype="home"] ytd-rich-grid-row>#contents, ytd-browse[page-subtype="home"] ytd-rich-grid-row ytd-rich-grid-media:style(max-width: unset !important;)
+
+! YT Remove Comments
+~youtube-nocookie.com,~youtube.com##iframe ~ #topvbar > #rvid
+
+
+www.youtube.com##ytd-browse ytd-grid-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"])
+www.youtube.com##ytd-browse ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"])
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-video-renderer ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"]:upward(ytd-item-section-renderer)
+
+/annotations_module.js$script,important,domain=youtube.com
+/endscreen.js$script,important,domain=youtube.com
+youtube.com##.ytp-quality-menu .ytp-premium-label:upward(.ytp-menuitem)
+youtube.com##ytd-popup-container > tp-yt-paper-dialog > ytd-mealbar-promo-renderer, ytd-popup-container > tp-yt-paper-dialog > yt-mealbar-promo-renderer:has-text(/Claim Offer|Join now|Not Now|No thanks|YouTube TV|live TV|Live TV|movies|sports|Try it free|unlimited DVR|watch NFL/)
+
+
+! Player border radius
+youtube.com###ytd-player.ytd-watch-flexy:style(border-radius: 0px !important)
+youtube.com##ytd-watch-flexy:style(border-radius: 0px !important)
+
+! Thumbnails border radius (like startpage)
+youtube.com###thumbnail:style(border-radius: 0px !important)
+
+www.youtube.com##+js(nano-stb, resolve(1), *, 0.001)
+
+instagram.com##.Yx5HN.RnEpo div:has-text(/Log in to continue/):xpath(..)
+instagram.com##body:style(overflow: auto !important)
+
+! Big Borther Brasil 
+globo.com##:xpath('//*[contains(text(),"BBB")]'):upward(2)
+youtube.com##
+
+! 2024-01-06 https://www.globo.com
+www.globo.com##.theme-entretenimento
+
+! Remove tracking URL parameters from links
+*$removeparam=utm_source
+*$removeparam=utm_medium
+*$removeparam=utm_campaign
+*$removeparam=utm_content
+
+! 2024-01-19 https://www.globo.com: Hide the Entertainement area from Globo
+www.globo.com##.hui-container.area-vitrine-globoplay
