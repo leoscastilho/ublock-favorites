@@ -102,6 +102,10 @@ instagram.com##body:style(overflow: auto !important)
 ! Big Borther Brasil 
 globo.com##:xpath('//*[contains(text(),"BBB")]'):upward(2)
 youtube.com##
+www.globo.com##[class*="BBB"]
+www.globo.com##[class*="bbb"]
+www.globo.com##[id*="BBB"]
+www.globo.com##[id*="bbb"]
 
 ! 2024-01-06 https://www.globo.com
 www.globo.com##.theme-entretenimento
