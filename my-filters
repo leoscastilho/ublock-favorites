@@ -118,3 +118,6 @@ www.globo.com##.theme-entretenimento
 
 ! 2024-01-19 https://www.globo.com: Hide the Entertainement area from Globo
 www.globo.com##.hui-container.area-vitrine-globoplay
+
+! Block Elon Musk Everywhere
+*##body:xpath('//*[contains(translate(text(),"ELONMUSK","elonmusk"),"elon musk")]')
